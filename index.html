@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        .card {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 1.8em;
+            color: #ff6f61;
+        }
+        p {
+            font-size: 1em;
+        }
+        img {
+            max-width: 50%;
+            height: 50%;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #e55b50;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Happy Birthday, My Tusi! 🎉</h1>
+        <img src="bday.png" alt="Birthday Image">
+        <p>You are the perfect algorithm that makes my life run smoothly! 💖</p>
+        <p>Wishing you an infinite loop of happiness and success!</p>
+        <button onclick="showMessage()">Click for a Surprise</button>
+        <p id="surprise" style="display: none; margin-top: 20px; font-weight: bold;">You're the only constant in my life, and I love you to infinity and beyond! ❤️</p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("surprise").style.display = "block";
+        }
+    </script>
+</body>
+</html>
