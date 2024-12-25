@@ -15,6 +15,7 @@
             background: linear-gradient(120deg, #ff9a9e, #fad0c4);
             font-family: 'Arial', sans-serif;
             color: #333;
+            overflow: hidden;
         }
         .card {
             text-align: center;
@@ -24,6 +25,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 90%;
             max-width: 400px;
+            position: relative;
         }
         h1 {
             font-size: 1.8em;
@@ -32,11 +34,15 @@
         p {
             font-size: 1em;
         }
-        img {
+        img, video {
             max-width: 50%;
             height: 50%;
             border-radius: 15px;
-            margin: 20px 0;
+            margin: 20px 0;;
+            display: none; /* Initially hidden */
+        }
+        img.show, video.show {
+            display: block; /* Show when the class is added */
         }
         button {
             margin-top: 20px;
@@ -52,7 +58,6 @@
         button:hover {
             background-color: #e55b50;
         }
-        
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.5em;
@@ -61,21 +66,56 @@
                 font-size: 0.9em;
             }
         }
+        /* Floating emojis */
+        .emoji {
+            position: absolute;
+            font-size: 2em;
+            animation: floatUp 3s linear infinite;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Happy Birthday, My Tusi! 🎉</h1>
-        <img src="bday.png" alt="Birthday Image">
+        <img id="birthday-image" src="bday.png" alt="Birthday Image" class="show">
+        <video id="birthday-video" controls>
+            <source src="birthday_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <p>You are the perfect algorithm that makes my life run smoothly! 💖</p>
         <p>Wishing you an infinite loop of happiness and success!</p>
         <button onclick="showMessage()">Click for a Surprise</button>
         <p id="surprise" style="display: none; margin-top: 20px; font-weight: bold;">You're the only constant in my life, and I love you to infinity and beyond! ❤️</p>
     </div>
 
+    <!-- Floating emojis -->
+    <div class="emoji" style="left: 20%; animation-delay: 0s;">❤️</div>
+    <div class="emoji" style="left: 50%; animation-delay: 1s;">💖</div>
+    <div class="emoji" style="left: 80%; animation-delay: 2s;">💕</div>
+    <div class="emoji" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="emoji" style="left: 25%; animation-delay: 1s;">💖</div>
+    <div class="emoji" style="left: 40%; animation-delay: 0.5s;">💕</div>
+    <div class="emoji" style="left: 55%; animation-delay: 1.5s;">💞</div>
+    <div class="emoji" style="left: 70%; animation-delay: 0.8s;">💓</div>
+
+    <audio id="song" src="birthday_song.mp3"></audio>
+
     <script>
         function showMessage() {
             document.getElementById("surprise").style.display = "block";
+            document.getElementById("song").play(); // Play the song
+            document.getElementById("birthday-image").classList.remove("show"); // Hide the image
+            document.getElementById("birthday-video").classList.add("show"); // Show the video
         }
     </script>
 </body>
